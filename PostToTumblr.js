@@ -6,7 +6,7 @@ console.log(postData);
 var creds = JSON.parse(fs.readFileSync("tumblr_client_secret.json"));
 var client = tumblr.createClient(creds.secretStuff);
 
-var myPost = client.createVideoPost('kpopndrop.tumblr.com', {type: 'video', caption: formatPostCaption(postData), tags: postData.tags + "," + postData.title + "," + postData.artist, embed: postData.url, state: 'queue', format: 'html'}, function (err, data) {
+var myPost = client.createVideoPost('kpopndrop.tumblr.com', {type: 'video', provider: 'youtube', caption: formatPostCaption(postData), tags: postData.tags + "," + postData.title + "," + postData.artist, embed: postData.url, state: 'queue', format: 'html'}, function (err, data) {
     console.log(err);
 });
 
